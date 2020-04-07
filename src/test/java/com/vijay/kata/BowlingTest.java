@@ -29,8 +29,15 @@ public class BowlingTest {
     }
 
     @Test
-    public void parseInputSequenceOfRollShouldReturnNullWhenXGivenInputRollSequencePassedTest() {
+    public void parseInputSequenceOfRollWhenXGivenInputRollSequencePassedTest() {
         String rollSequence = "X X X X";
+        String[] expectedParsedRollSequence = new String[]{"X", "X", "X", "X"};
+        assertEquals(b.parseInputSequenceOfRoll(rollSequence), expectedParsedRollSequence);
+    }
+
+    @Test
+    public void parseInputSequenceOfRollWhenXGivenWithSpaceInputRollSequencePassedTest() {
+        String rollSequence = "X X X  X ";
         String[] expectedParsedRollSequence = new String[]{"X", "X", "X", "X"};
         assertEquals(b.parseInputSequenceOfRoll(rollSequence), expectedParsedRollSequence);
     }
