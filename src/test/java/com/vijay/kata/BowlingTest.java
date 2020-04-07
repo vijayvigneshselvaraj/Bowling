@@ -10,4 +10,15 @@ public class BowlingTest {
     public void baseTest() {
         assertTrue(true);
     }
+
+    @Test
+    public void parseInputSequenceOfRollShouldReturnNullWhenEmptyInputRollSequencePassedTest() {
+        assertNull(new Bowling().parseInputSequenceOfRoll(""));
+    }
+
+    @Test
+    public void parseInputSequenceOfRollShouldReturnNullWhenNullInputRollSequencePassedTest() {
+        assertNull(new Bowling().parseInputSequenceOfRoll(null));
+    }
+
 }
