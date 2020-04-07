@@ -13,8 +13,7 @@ public class ScoreBoard {
                 score = Constants.STRIKE_SCORE + score;
             }
             if(isMiss(eachFrame)) {
-                int eachFrameScore = Integer.parseInt(eachFrame.getFrameValue().replace("-", ""));
-                score = eachFrameScore + score;
+                score = calculateCurrentFrameScore(eachFrame).getScore() + score;
             }
             if(isSpare(eachFrame)) {
                 score = calculateCurrentFrameScore(eachFrame).getScore() + score + Constants.SPARE_SCORE;
@@ -47,27 +46,33 @@ public class ScoreBoard {
     }
 
     private boolean isSpare(Frame eachFrame) {
-        return eachFrame.getFrameValue().contains("/");
+        return eachFrame.getFrameValue().contains(Constants.SPARE_SEP);
     }
 
     private boolean isMiss(Frame frame) {
-        return frame.getFrameValue().contains("-");
+        return frame.getFrameValue().contains(Constants.MISS_SEP);
     }
 
     private boolean isStrike(Frame frame) {
-        return frame.getFrameValue().contains("X");
+        return frame.getFrameValue().contains(Constants.STRIKE_SEP);
     }
 
     private Frame calculateCurrentFrameScore(Frame frame) {
         int eachFrameScore = 0;
-        if(frame.getFrameId() == Constants.MAX_BOWLING_TURN) {
-            eachFrameScore = Integer.parseInt(frame.getFrameValue().replace("/", ""));
-            eachFrameScore = eachFrameScore%10;
+        if(isSpare(frame)) {
+            if(frame.getFrameId() == Constants.MAX_BOWLING_TURN) {
+                eachFrameScore = Integer.parseInt(frame.getFrameValue().replace(Constants.SPARE_SEP, ""));
+                eachFrameScore = eachFrameScore%10;
+                frame.setScore(eachFrameScore);
+                return frame;
+            }
+            eachFrameScore = Integer.parseInt(frame.getFrameValue().replace(Constants.SPARE_SEP, ""));
             frame.setScore(eachFrameScore);
-            return frame;
         }
-        eachFrameScore = Integer.parseInt(frame.getFrameValue().replace("/", ""));
-        frame.setScore(eachFrameScore);
+        else if(isMiss(frame)) {
+            eachFrameScore = Integer.parseInt(frame.getFrameValue().replace("-", ""));
+            frame.setScore(eachFrameScore);
+        }
         return frame;
     }
 
