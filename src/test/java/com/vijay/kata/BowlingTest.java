@@ -6,10 +6,12 @@ import static org.junit.Assert.*;
 
 public class BowlingTest {
     public Bowling b = null;
+    public ScoreBoard sb = null;
 
     @Before
     public void setup() {
         b = new Bowling();
+        sb = new ScoreBoard();
     }
 
     @Test
@@ -19,26 +21,26 @@ public class BowlingTest {
 
     @Test
     public void parseInputSequenceOfRollShouldReturnNullWhenEmptyInputRollSequencePassedTest() {
-        assertNull(b.parseInputSequenceOfRoll(""));
+        assertNull(sb.parseInputSequenceOfRoll(""));
     }
 
     @Test
     public void parseInputSequenceOfRollShouldReturnNullWhenNullInputRollSequencePassedTest() {
-        assertNull(b.parseInputSequenceOfRoll(null));
+        assertNull(sb.parseInputSequenceOfRoll(null));
     }
 
     @Test
     public void parseInputSequenceOfRollWhenXGivenInputRollSequencePassedTest() {
         String rollSequence = "X X X X";
         String[] expectedParsedRollSequence = new String[]{"X", "X", "X", "X"};
-        assertEquals(b.parseInputSequenceOfRoll(rollSequence), expectedParsedRollSequence);
+        assertEquals(sb.parseInputSequenceOfRoll(rollSequence), expectedParsedRollSequence);
     }
 
     @Test
     public void parseInputSequenceOfRollWhenXGivenWithSpaceInputRollSequencePassedTest() {
         String rollSequence = "X X X  X ";
         String[] expectedParsedRollSequence = new String[]{"X", "X", "X", "X"};
-        assertEquals(b.parseInputSequenceOfRoll(rollSequence), expectedParsedRollSequence);
+        assertEquals(sb.parseInputSequenceOfRoll(rollSequence), expectedParsedRollSequence);
     }
 
 }

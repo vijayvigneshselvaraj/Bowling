@@ -23,6 +23,29 @@ public class ScoreBoard {
         return score;
     }
 
+    public ArrayList<Frame> convertSequenceToFrame(String[] rawFrameValues) {
+        ArrayList<Frame> frames = new ArrayList<Frame>();
+        Frame frame = null;
+        if (rawFrameValues != null) {
+            for(int eachRawFrameValue=0; eachRawFrameValue < rawFrameValues.length; eachRawFrameValue++) {
+                frame = new Frame();
+                frame.setFrameId(eachRawFrameValue+1);
+                frame.setFrameValue(rawFrameValues[eachRawFrameValue]);
+                frames.add(frame);
+            }
+            return frames;
+        }
+        return null;
+    }
+
+    public String[] parseInputSequenceOfRoll(String rollSequence) {
+        String[] rawFrameValues = null;
+        if (rollSequence != null && !"".equalsIgnoreCase(rollSequence)) {
+            rawFrameValues = rollSequence.split("\\s+");
+        }
+        return rawFrameValues;
+    }
+
     private boolean isSpare(Frame eachFrame) {
         return eachFrame.getFrameValue().contains("/");
     }
