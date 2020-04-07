@@ -44,7 +44,7 @@ public class BowlingTest {
     }
 
     @Test
-    public void parseInputSequenceOfRollWhenMissGivenTest() {
+    public void parseInputSequenceOfRollWhenSpareGivenTest() {
         String rollSequence = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5";
         assertEquals(b.getScore(rollSequence), 150);
     }
@@ -53,6 +53,12 @@ public class BowlingTest {
     public void parseInputSequenceOfRollWhenXGivenTest() {
         String rollSequence = "X X X X X X X X X X X X";
         assertEquals(b.getScore(rollSequence), 300);
+    }
+
+    @Test
+    public void parseInputSequenceOfRollWhenMissingTurnGivenTest() {
+        String rollSequence = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-";
+        assertEquals(b.getScore(rollSequence), 90);
     }
 
 }
