@@ -49,4 +49,10 @@ public class BowlingTest {
         assertEquals(b.getScore(rollSequence), 150);
     }
 
+    @Test
+    public void parseInputSequenceOfRollWhenXGivenTest() {
+        String rollSequence = "X X X X X X X X X X X X";
+        assertEquals(b.getScore(rollSequence), 300);
+    }
+
 }
