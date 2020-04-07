@@ -10,24 +10,33 @@ public class ScoreBoard {
         Frame eachFrame;
         for(int eachRawFrameValue=0; eachRawFrameValue < max_turns; eachRawFrameValue++) {
             eachFrame = frames.get(eachRawFrameValue);
-            // Strike
-            if(eachFrame.getFrameValue().contains("X")) {
+            if(isStrike(eachFrame)) {
                 score = 30 + score;
             }
-            // Miss
-            if(eachFrame.getFrameValue().contains("-")) {
+            if(isMiss(eachFrame)) {
                 int eachFrameScore = Integer.parseInt(eachFrame.getFrameValue().replace("-", ""));
                 score = eachFrameScore + score;
             }
-            // Spare
-            if(eachFrame.getFrameValue().contains("/")) {
+            if(isSpare(eachFrame)) {
                 score = calculateCurrentFrameScore(eachFrame).getScore() + score + 10;
             }
         }
         return score;
     }
 
-    public Frame calculateCurrentFrameScore(Frame frame) {
+    private boolean isSpare(Frame eachFrame) {
+        return eachFrame.getFrameValue().contains("/");
+    }
+
+    private boolean isMiss(Frame frame) {
+        return frame.getFrameValue().contains("-");
+    }
+
+    private boolean isStrike(Frame frame) {
+        return frame.getFrameValue().contains("X");
+    }
+
+    private Frame calculateCurrentFrameScore(Frame frame) {
         int eachFrameScore = 0;
         if(frame.getFrameId() == 10) {
             eachFrameScore = Integer.parseInt(frame.getFrameValue().replace("/", ""));
