@@ -2,7 +2,8 @@ package com.vijay.kata;
 
 public class Frame {
     private int frameId;
-    private int totalScore;
+    private String frameValue;
+    private int score;
 
     public int getFrameId() {
         return frameId;
@@ -12,11 +13,19 @@ public class Frame {
         this.frameId = frameId;
     }
 
-    public int getTotalScore() {
-        return totalScore;
+    public String getFrameValue() {
+        return frameValue;
     }
 
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
+    public void setFrameValue(String frameValue) {
+        this.frameValue = frameValue;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
