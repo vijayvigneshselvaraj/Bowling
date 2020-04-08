@@ -5,13 +5,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BowlingTest {
-    public Bowling b = null;
-    public ScoreBoard sb = null;
+    public Bowling bowling = null;
+    public ScoreBoard scoreBoard = null;
 
     @Before
     public void setup() {
-        b = new Bowling();
-        sb = new ScoreBoard();
+        bowling = new Bowling();
+        scoreBoard = new ScoreBoard();
     }
 
     @Test
@@ -21,44 +21,44 @@ public class BowlingTest {
 
     @Test
     public void parseInputSequenceOfRollShouldReturnNullWhenEmptyInputRollSequencePassedTest() {
-        assertNull(sb.parseInputSequenceOfRoll(""));
+        assertNull(scoreBoard.parseInputSequenceOfRoll(""));
     }
 
     @Test
     public void parseInputSequenceOfRollShouldReturnNullWhenNullInputRollSequencePassedTest() {
-        assertNull(sb.parseInputSequenceOfRoll(null));
+        assertNull(scoreBoard.parseInputSequenceOfRoll(null));
     }
 
     @Test
     public void parseInputSequenceOfRollWhenXGivenInputRollSequencePassedTest() {
         String rollSequence = "X X X X";
         String[] expectedParsedRollSequence = new String[]{"X", "X", "X", "X"};
-        assertEquals(sb.parseInputSequenceOfRoll(rollSequence), expectedParsedRollSequence);
+        assertEquals(scoreBoard.parseInputSequenceOfRoll(rollSequence), expectedParsedRollSequence);
     }
 
     @Test
     public void parseInputSequenceOfRollWhenXGivenWithSpaceInputRollSequencePassedTest() {
         String rollSequence = "X X X  X ";
         String[] expectedParsedRollSequence = new String[]{"X", "X", "X", "X"};
-        assertEquals(sb.parseInputSequenceOfRoll(rollSequence), expectedParsedRollSequence);
+        assertEquals(scoreBoard.parseInputSequenceOfRoll(rollSequence), expectedParsedRollSequence);
     }
 
     @Test
     public void parseInputSequenceOfRollWhenSpareGivenTest() {
         String rollSequence = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5";
-        assertEquals(b.getScore(rollSequence), 150);
+        assertEquals(bowling.getScore(rollSequence), 150);
     }
 
     @Test
     public void parseInputSequenceOfRollWhenXGivenTest() {
         String rollSequence = "X X X X X X X X X X X X";
-        assertEquals(b.getScore(rollSequence), 300);
+        assertEquals(bowling.getScore(rollSequence), 300);
     }
 
     @Test
     public void parseInputSequenceOfRollWhenMissingTurnGivenTest() {
         String rollSequence = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-";
-        assertEquals(b.getScore(rollSequence), 90);
+        assertEquals(bowling.getScore(rollSequence), 90);
     }
 
 }
