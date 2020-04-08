@@ -1,4 +1,5 @@
 package com.vijay.kata;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,6 +13,14 @@ public class BowlingTest {
     public void setup() {
         bowling = new Bowling();
         scoreBoard = new ScoreBoard();
+    }
+
+    @After
+    public void tearDown() {
+        bowling = null;
+        scoreBoard = null;
+        assertNull(bowling);
+        assertNull(scoreBoard);
     }
 
     @Test
