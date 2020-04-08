@@ -20,8 +20,33 @@ Each game, or “line” of bowling, includes ten turns, or “frames” for the
 * The game score is the total of all frame scores.
 
 ### Contributors
+```
 1) Vijayvignesh G S
+```
 
 ### Prerequisites
+```
 1) Java 1.8+
 2) Maven
+```
+
+### Installing
+
+Download the zip file and extract into the designated directory and follow the bellow steps to build the application.
+
+
+```
+1) Open the terminal where you extracted the code. It whould be inside Bowling-master directory.
+2) type 'javac src/main/java/com/vijay/kata/*.java'
+3) Go to main directory by typing 'cd src/main/java'
+4) Run the application by typing 'java com.vijay.kata.BowlingRunner X X X X X X X X X X X X' 
+```
+
+#####Examples:
+
+```
+1) java com.vijay.kata.BowlingRunner X X X X X X X X X X X X
+2) java com.vijay.kata.BowlingRunner 9- 9- 9- 9- 9- 9- 9- 9- 9- 9-
+3) java com.vijay.kata.BowlingRunner 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5
+
+```
