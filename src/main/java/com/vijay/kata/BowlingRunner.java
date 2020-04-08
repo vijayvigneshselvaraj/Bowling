@@ -6,8 +6,9 @@ public class BowlingRunner {
         String scoreSequence = "";
         if (args.length>=1) {
             for(String arg : args) {
-                scoreSequence = scoreSequence + " " + arg;
+                scoreSequence = arg + " " + scoreSequence;
             }
+            System.out.println(scoreSequence);
             System.out.println(b.getScore(scoreSequence));
         }
         else
