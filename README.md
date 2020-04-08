@@ -42,7 +42,7 @@ Download the zip file and extract into the designated directory and follow the b
 4) Run the application by typing 'java com.vijay.kata.BowlingRunner X X X X X X X X X X X X' 
 ```
 
-#####Examples:
+Examples:
 
 ```
 1) java com.vijay.kata.BowlingRunner X X X X X X X X X X X X
